@@ -69,7 +69,7 @@ const INITIAL_MTL = new THREE.MeshPhongMaterial({
   color: 0xf1f1f1,
   shininess: 10,
   transparent: true,
-  opacity: 0.1,
+  opacity: 1,
 });
 
 const INITIAL_MAP = [
