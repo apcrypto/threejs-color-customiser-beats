@@ -1,7 +1,7 @@
 const LOADER = document.getElementById("js-loader");
 const DRAG_NOTICE = document.getElementById("js-drag-notice");
-var loaded = false;
 const TRAY = document.getElementById("js-tray-slide");
+let loaded = false;
 const colors = [
   {
     color: "03214A",
@@ -207,7 +207,6 @@ function buildColors(colors) {
 
     if (color.texture) {
       swatch.style.backgroundImage = "url(" + color.texture + ")";
-      // console.log(color.texture);
     } else {
       swatch.style.background = "#" + color.color;
     }
@@ -283,7 +282,7 @@ let initRotate = 0;
 function initialRotation() {
   initRotate++;
   if (initRotate <= 120) {
-    theModel.rotation.y += Math.PI / 60;
+    theModel.rotation.y += Math.PI / 30;
   } else {
     loaded = true;
   }

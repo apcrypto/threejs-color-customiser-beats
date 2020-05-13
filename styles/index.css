@@ -167,9 +167,9 @@ body {
   .info {
     padding: 1em 2em;
   }
-  .info__message {
+  /* .info__message {
     display: none;
-  }
+  } */
   .options {
     bottom: 50px;
   }
