@@ -35,9 +35,10 @@ const colors = [
 var activeOption = "Headband";
 var cameraFar = 5;
 var theModel;
-const MODEL_PATH = "./assets/beats.glb";
+const MODEL_PATH = "./assets/beats2.glb";
 
 const BACKGROUND_COLOR = 0xf1f1f1;
+// const BACKGROUND_COLOR = 0xffffff;
 // Init the scene
 const scene = new THREE.Scene();
 // Set background
@@ -67,16 +68,15 @@ camera.position.x = 0;
 const INITIAL_MTL = new THREE.MeshPhongMaterial({
   color: 0xf1f1f1,
   shininess: 10,
+  transparent: true,
+  opacity: 0.1,
 });
 
 const INITIAL_MAP = [
   { childID: "Headband", mtl: INITIAL_MTL },
-  { childID: "Object003", mtl: INITIAL_MTL },
-  { childID: "Object004", mtl: INITIAL_MTL },
-  { childID: "Object005", mtl: INITIAL_MTL },
-  { childID: "Object006", mtl: INITIAL_MTL },
-  { childID: "Object007", mtl: INITIAL_MTL },
-  { childID: "Object008", mtl: INITIAL_MTL },
+  { childID: "Pad", mtl: INITIAL_MTL },
+  { childID: "Adjuster", mtl: INITIAL_MTL },
+  { childID: "Speaker", mtl: INITIAL_MTL },
 ];
 
 // Init the object loader
@@ -125,6 +125,7 @@ function initColor(parent, type, mtl) {
       if (o.name.includes(type)) {
         o.material = mtl;
         o.nameID = type; // Set a new property to identify this object
+        // o.material.alphaTest = 0.5;
       }
     }
   });
@@ -138,7 +139,7 @@ scene.add(hemiLight);
 
 var dirLight = new THREE.DirectionalLight(0xffffff, 0.54);
 dirLight.position.set(-8, 12, 8);
-dirLight.castShadow = true;
+dirLight.castShadow = false;
 dirLight.shadow.mapSize = new THREE.Vector2(1024, 1024);
 // Add directional Light to scene
 scene.add(dirLight);
@@ -147,6 +148,7 @@ scene.add(dirLight);
 var floorGeometry = new THREE.PlaneGeometry(5000, 5000, 1, 1);
 var floorMaterial = new THREE.MeshPhongMaterial({
   color: 0xeeeeee,
+  // color: 0xffffff,
   shininess: 0,
 });
 
