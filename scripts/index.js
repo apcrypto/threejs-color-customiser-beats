@@ -282,7 +282,7 @@ let initRotate = 0;
 function initialRotation() {
   initRotate++;
   if (initRotate <= 120) {
-    theModel.rotation.y += Math.PI / 30;
+    theModel.rotation.y += Math.PI / 10;
   } else {
     loaded = true;
   }
